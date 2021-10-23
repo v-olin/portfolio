@@ -2,13 +2,34 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="css/styles.css" />
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="css/styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <title>Victor Olin</title>
     </head>
     <body>
         <!-- Navbar -->
+        <nav>
+            <h1>Victor Olin</h1>
+            <ul>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link"></a>Skills</li>
+                <li><a href="#projects" class="nav-link"></a>Projects</li>
+                <li><a href="#contact" class="nav-link"></a>Contact</li>
+            </ul>
+            <button class="burger-menu" id="burger-menu">
+                <span class="iconify" data-icon="ic:baseline-menu"></span>
+            </button>
+        </nav>
 
         <!-- Hero Section -->
 
@@ -28,5 +49,11 @@
 
         <!-- Website scripts -->
         <script src="js/app.js"></script>
+
+        <!-- Ion icons scripts -->
+        <!-- ref: https://iconify.design/ -->
+        <script
+            src="https://code.iconify.design/2/2.0.3/iconify.min.js">
+        </script>
     </body>
 </html>
