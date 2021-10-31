@@ -38,6 +38,9 @@ main {
 
 .about h1 {
     color: white;
+    font-size:3rem;
+    z-index:100;
+    font-weight: 700;
 }
 
 .links {
@@ -55,16 +58,31 @@ main {
     margin-bottom: 1rem;
     border: solid;
     background: none;
-    
+    border-radius: 5px;
     color: white;
+    padding: 1rem;
+}
+
+.link strong {
+    display: block;
+}
+
+.link:hover {
+    border-color: #ffae00;
 }
 
 .icon {
     width: 4rem;
     height: 4rem;
+    padding: 5px;
     filter: brightness(0) invert(1);
 }
 
+@media screen and (max-width: 800px) {
+    .links {
+      flex-direction: column;
+    }
+}
 
 /*
 .about {
