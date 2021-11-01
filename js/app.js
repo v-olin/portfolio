@@ -127,10 +127,8 @@ class Plane {
     }
 
     outsideCanvas() {
-        if ((this.x < -20 || this.x > windowWidth + 20)
-            && (this.y < -20 || this.y > windowHeight + 20)){
-                return true;
-            }
+        if (this.x < -20 || this.x > windowWidth + 20 || this.y < -20 || this.y > windowHeight + 20)
+            return true;
         return false;
     }
 
