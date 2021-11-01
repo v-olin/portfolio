@@ -111,17 +111,16 @@ class Plane {
     draw() {
         let angle = this.velocity.heading() + radians(90);
         fill(219, 191, 7);
-        // push();
+        push();
         translate(this.x, this.y);
         rotate(angle);
-        image(planeImg, this.x, this.y);
-        // beginShape();
-        // noStroke();
-        // vertex(0, -this.r * 2);
-        // vertex(-this.r, this.r * 2);
-        // vertex(this.r * 2, this.r * 2);
-        // endShape(CLOSE);
-        // pop();
+        beginShape();
+        noStroke();
+        vertex(0, -this.r * 2);
+        vertex(-this.r, this.r * 2);
+        vertex(this.r * 2, this.r * 2);
+        endShape(CLOSE);
+        pop();
         fill(255, 255, 255);
     }
 
