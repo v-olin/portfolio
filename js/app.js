@@ -1,9 +1,9 @@
 // ----- Variables --------------------
 let waypoints = [];
-const wp_len = 10;
+const wp_len = 20;
 
 let planes = [];
-const plane_len = 5;
+const plane_len = 20;
 
 // ----- Funcs ------------------------
 function setup() {
