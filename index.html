@@ -6,43 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victor Olin</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- <script src="js/p5.js"></script> -->
     <script src="js/p5.min.js"></script>
-    </head>
+</head>
 
 <body>
-    <div id="canvas"></div>
-    <main>
-        <div>
-            <section class="about">
-                <h1>Victor Olin</h1>
-            </section>
-            <section class="links">
-                <a href="https://github.com/v-olin">
-                    <div class="link">
-                        <img
-                            src="images/git-logo.png"
-                            alt=""
-                            class="icon" >
-                        <strong>Github</strong>
-                        <span>Check out what I like to do in my spare time</span>
-                    </div>
-                </a>
-                
-                <a href="https://www.linkedin.com/in/victor-o-0194b9133/">
-                    <div class="link">
-                        <img
-                            src="images/linkedin-logo.png"
-                            alt=""
-                            class="icon" >
-                        <strong>LinkedIn</strong>
-                        <span>You can find my work experience here</span>
-                    </div>
-                </a>
-            </section>
+    <div class="container">
+        <div class="background">
+            <img src="images/background.png" alt="" class="ground-bg">
         </div>
-    </main>
+        <div id="canvas"></div>
+        <main>
+            <div class="content-container">
+                <section class="about">
+                    <h1>Victor Olin</h1>
+                </section>
+                <section class="links">
+                    <a href="https://github.com/v-olin">
+                        <div class="link">
+                            <img src="images/git-logo.png" alt="" class="icon">
+                            <strong>Github</strong>
+                            <span>Check out what I like to do in my spare time</span>
+                        </div>
+                    </a>
 
-    
+                    <a href="https://www.linkedin.com/in/victor-o-0194b9133/">
+                        <div class="link">
+                            <img src="images/linkedin-logo.png" alt="" class="icon">
+                            <strong>LinkedIn</strong>
+                            <span>You can find my work experience here</span>
+                        </div>
+                    </a>
+                </section>
+            </div>
+        </main>
+    </div>
+
     <script src="js/app.js"></script>
 </body>
 
