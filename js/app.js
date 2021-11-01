@@ -4,6 +4,8 @@ const wp_len = 20;
 
 let planes = [];
 const plane_len = 20;
+let planeImg;
+let planeImgUrl = 'https://alohe.github.io/emojicloud/svg/Airplane.svg';
 
 // ----- Funcs ------------------------
 function setup() {
@@ -13,6 +15,7 @@ function setup() {
     canvas.style("z-index", "-1");
     canvas.position(0, 0);
     fill(0,0,0);
+    // angleMode(DEGREES);
 
     // set up waypoints
     for (let i = 0; i < wp_len; i++) {
@@ -25,6 +28,10 @@ function setup() {
     }
 }
 
+function preload() {
+    planeImg = loadImage(planeImgUrl);
+}
+
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }
@@ -35,7 +42,9 @@ function draw() {
         for (let i = 0; i < plane_len; i++) {
             let p = planes[i];
             p.update();
-            // p.borders();
+            if (p.outsideCanvas() === true){
+                p.reset();
+            }
             p.draw();
         }
     }
@@ -74,11 +83,13 @@ function normalizeVector(vector) {
     let x = vector.x;
     let y = vector.y;
     let z = Math.sqrt(x*x + y*y);
-
     x = x / z;
     y = y / z;
+    let nVector = createVector(x,y)
+    // console.log(`V: ${vector}, N: ${nVector}`);
 
-    return createVector(x,y);
+
+    return nVector;
 }
 
 // ----- Objects ----------------------
@@ -109,25 +120,35 @@ class Plane {
     }
 
     draw() {
-        let angle = this.velocity.heading() + radians(90);
-        fill(219, 191, 7);
+        let track = (this.velocity.heading() + radians(45)) % TWO_PI;
         push();
+        rotate(track);
         translate(this.x, this.y);
-        rotate(angle);
-        beginShape();
-        noStroke();
-        vertex(0, -this.r * 2);
-        vertex(-this.r, this.r * 2);
-        vertex(this.r * 2, this.r * 2);
-        endShape(CLOSE);
+        image(planeImg, this.x, this.y);
         pop();
         fill(255, 255, 255);
     }
 
-    borders() {
-        if (this.position.x < -this.r) this.position.x = width + this.r;
-        if (this.position.y < -this.r) this.position.y = height + this.r;
-        if (this.position.x > width + this.r) this.position.x = -this.r;
-        if (this.position.y > height + this.r) this.position.y = -this.r;
+    outsideCanvas() {
+        if ((this.x < -20 || this.x > windowWidth + 20)
+            && (this.y < -20 || this.y > windowHeight + 20)){
+                return true;
+            }
+        return false;
+    }
+
+    reset() {
+        this.entry = outsideCoords();
+        this.x = this.entry.x;
+        this.y = this.entry.y;
+        this.exit = outsideCoords();
+        this.waypoint = waypoints[Math.floor(Math.random() * wp_len)];
+        let dx = this.waypoint.x - this.entry.x;
+        let dy = this.waypoint.y - this.entry.y;
+        let vec = createVector(dx,dy);
+        this.velocity = normalizeVector(vec);
+        // let trackRad = this.velocity.heading()
+        // let trackDeg = degrees(trackRad);
+        // console.log(`R: ${trackRad}, D: ${trackDeg % 360}`);
     }
 }
