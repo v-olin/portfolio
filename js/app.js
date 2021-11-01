@@ -6,6 +6,7 @@ let planes = [];
 const plane_len = 20;
 let planeImg;
 let planeImgUrl = 'https://alohe.github.io/emojicloud/svg/Airplane.svg';
+// let planeImgUrl = 'https://alohe.github.io/emojicloud/svg/Round%20pushpin.svg';
 
 // ----- Funcs ------------------------
 function setup() {
@@ -15,7 +16,7 @@ function setup() {
     canvas.style("z-index", "-1");
     canvas.position(0, 0);
     fill(0,0,0);
-    // angleMode(DEGREES);
+    angleMode(DEGREES);
 
     // set up waypoints
     for (let i = 0; i < wp_len; i++) {
@@ -85,11 +86,7 @@ function normalizeVector(vector) {
     let z = Math.sqrt(x*x + y*y);
     x = x / z;
     y = y / z;
-    let nVector = createVector(x,y)
-    // console.log(`V: ${vector}, N: ${nVector}`);
-
-
-    return nVector;
+    return createVector(x,y);
 }
 
 // ----- Objects ----------------------
@@ -109,8 +106,7 @@ class Plane {
         this.waypoint = waypoints[Math.floor(Math.random() * wp_len)];
         let dx = this.waypoint.x - this.entry.x;
         let dy = this.waypoint.y - this.entry.y;
-        let vec = createVector(dx,dy);
-        this.velocity = normalizeVector(vec);
+        this.velocity = normalizeVector(createVector(dx,dy));
         this.r = 3.0;
     }
 
@@ -120,13 +116,14 @@ class Plane {
     }
 
     draw() {
-        let track = (this.velocity.heading() + radians(45)) % TWO_PI;
+        let track = this.velocity.heading();
         push();
-        rotate(track);
         translate(this.x, this.y);
-        image(planeImg, this.x, this.y);
+        rotate(45);
+        rotate(track);
+        imageMode(CENTER);
+        image(planeImg, 20, 20);
         pop();
-        fill(255, 255, 255);
     }
 
     outsideCanvas() {
@@ -145,10 +142,6 @@ class Plane {
         this.waypoint = waypoints[Math.floor(Math.random() * wp_len)];
         let dx = this.waypoint.x - this.entry.x;
         let dy = this.waypoint.y - this.entry.y;
-        let vec = createVector(dx,dy);
-        this.velocity = normalizeVector(vec);
-        // let trackRad = this.velocity.heading()
-        // let trackDeg = degrees(trackRad);
-        // console.log(`R: ${trackRad}, D: ${trackDeg % 360}`);
+        this.velocity = normalizeVector(createVector(dx,dy));
     }
 }
