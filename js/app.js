@@ -1,12 +1,12 @@
 // ----- Variables --------------------
 let waypoints = [];
-const wp_len = 20;
-
 let planes = [];
-const plane_len = 20;
 let planeImg;
 let planeImgUrl = 'https://alohe.github.io/emojicloud/svg/Airplane.svg';
-// let planeImgUrl = 'https://alohe.github.io/emojicloud/svg/Round%20pushpin.svg';
+
+// ----- Constants --------------------
+const wp_len = 20;
+const plane_len = 20;
 
 // ----- Funcs ------------------------
 function setup() {
@@ -18,7 +18,7 @@ function setup() {
     fill(0,0,0);
     angleMode(DEGREES);
 
-    // set up waypoints
+    // generate waypoints
     for (let i = 0; i < wp_len; i++) {
         waypoints.push(new Waypoint());
     }
@@ -29,14 +29,17 @@ function setup() {
     }
 }
 
+// Loads image when accessed
 function preload() {
     planeImg = loadImage(planeImgUrl);
 }
 
+// Canvas resize
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }
 
+// Draws planes on screen
 function draw() {
     clear();
     if (windowWidth > 420) {
@@ -51,6 +54,7 @@ function draw() {
     }
 }
 
+// Generates random coords outside of screen for plane to enter from
 function outsideCoords() {
     let side = Math.floor(Math.random() * 4);
     let dx = Math.floor(Math.random() * windowWidth);
@@ -80,6 +84,7 @@ function outsideCoords() {
     return createVector(x, y);
 }
 
+// Normalizes a vector
 function normalizeVector(vector) {
     let x = vector.x;
     let y = vector.y;
@@ -90,6 +95,14 @@ function normalizeVector(vector) {
 }
 
 // ----- Objects ----------------------
+
+/*
+    Waypoint object
+    -------------------------
+    Object members:
+        - x: Horizontal coordinate for waypoint
+        - y: Vertical coordinate for waypoint
+*/
 class Waypoint {
     constructor() {
         this.x = Math.floor(Math.random() * (windowWidth * 0.85));
@@ -97,6 +110,15 @@ class Waypoint {
     }
 }
 
+/*
+    Plane object
+    -------------------------
+    Object members:
+        - Entry coordinates for screen
+        - Waypoint (not implemented yet)
+        - Exit coordinates for screen
+        - Velocity (2d vector)
+*/
 class Plane {
     constructor() {
         this.entry = outsideCoords();
@@ -107,14 +129,15 @@ class Plane {
         let dx = this.waypoint.x - this.entry.x;
         let dy = this.waypoint.y - this.entry.y;
         this.velocity = normalizeVector(createVector(dx,dy));
-        this.r = 3.0;
     }
 
+    // Updates plane coordinates according to velocity
     update() {
         this.x += this.velocity.x;
         this.y += this.velocity.y;
     }
 
+    // Draws a plane emoji in accordance to it's track
     draw() {
         let track = this.velocity.heading();
         push();
@@ -126,12 +149,14 @@ class Plane {
         pop();
     }
 
+    // Checks whether plane is outside of canvas
     outsideCanvas() {
         if (this.x < -20 || this.x > windowWidth + 20 || this.y < -20 || this.y > windowHeight + 20)
             return true;
         return false;
     }
 
+    // Resets plane properties to enter screen again
     reset() {
         this.entry = outsideCoords();
         this.x = this.entry.x;
