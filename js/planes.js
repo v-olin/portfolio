@@ -3,6 +3,7 @@ let waypoints = [];
 let planes = [];
 let planeImg;
 let planeImgUrl = 'https://alohe.github.io/emojicloud/svg/Airplane.svg';
+// let planeImgUrl = 'https://alohe.github.io/emojicloud/svg/Pile%20of%20poo.svg';
 
 // ----- Constants --------------------
 const wp_len = 20;
