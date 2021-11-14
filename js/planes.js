@@ -47,7 +47,7 @@ function draw() {
         for (let i = 0; i < plane_len; i++) {
             let p = planes[i];
             p.update();
-            if (p.outsideCanvas() === true){
+            if (p.outsideCanvas()){
                 p.reset();
             }
             p.draw();
