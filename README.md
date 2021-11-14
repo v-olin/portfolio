@@ -1,4 +1,5 @@
-# Portfolio
-This is my portfolio in its very early stages.
-
-Currently it's hosted on Github Pages [here](https://v-olin.github.io/portfolio/)
+# Development
+## TODO:
+- Background about me? (interests etc (P3D??))
+- Scale airplanes larger?
+- Other background for all pages beside homepage?
