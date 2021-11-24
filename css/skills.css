@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
 
 /* Variables */
+
 :root {
     --font-family: "Roboto", sans-serif;
     --normal-font: 400;
@@ -9,12 +10,16 @@
     --line-height: 1.7rem;
 }
 
+
 /* Content */
+
 html {
     scroll-behavior: smooth;
 }
 
+
 /* CSS reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -53,7 +58,7 @@ body {
 }
 
 main {
-    min-height:100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,8 +77,8 @@ main {
 
 .skillset h1 {
     color: white;
-    font-size:3rem;
-    z-index:100;
+    font-size: 3rem;
+    z-index: 100;
     font-weight: 700;
 }
 
