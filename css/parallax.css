@@ -1,0 +1,49 @@
+/* Variables */
+
+:root {
+    --font-family: "Roboto", sans-serif;
+    --normal-font: 400;
+    --bold-font: 700;
+    --bg-color: #383838;
+    --line-height: 1.7rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* CSS reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    padding: 0;
+}
+
+nav {
+    width: 100%;
+    min-height: 2rem;
+    display: flex;
+    flex-flow: column-reverse;
+    align-items: flex-end;
+}
+
+.nav-list {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: white;
+    font-size: 32px;
+}
