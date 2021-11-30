@@ -16,6 +16,23 @@ html {
     scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(37, 37, 37);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(48, 48, 48);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(199, 199, 199);
+}
 
 /* CSS reset */
 
@@ -31,6 +48,7 @@ body {
     font-family: var(--font-family);
     background-color: var(--fg-color);
     padding: 0;
+    /* overflow-y: hidden; */
 }
 
 /* Navbar */
@@ -91,10 +109,20 @@ nav {
 
 .icon:hover {
     color: blueviolet;
-    transform: scale(1.5);
+    transform: scale(1.3);
+    transition: 0.2s;
 }
 
 /* Plane canvas */
+
+.plane-section {
+    width: 100%;
+    height: 50rem;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .plane-container {
     width: 100%;
@@ -140,10 +168,53 @@ nav {
 
 /* Cards */
 
-/* .card {
+.card {
     height: 100rem;
     background-color: #424242;
-} */
+    margin: 15%;
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.card p {
+    font-size: 35px;
+    color: white;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.project {
+    border: 2px solid white;
+    border-radius: 7px;
+    margin: 2rem 2rem 2rem 4rem;
+    width: fit-content;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.project-link:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px #686868;
+}
+
+.project h1 {
+    margin: 10px;
+    color: white;
+}
+
+.project span {
+    padding: 10px;
+    word-break: break-;
+}
+
+.project p {
+    font-size: 20px;
+    margin: 10px;
+}
+
+/* Typewriter effect */
 
 #typew-text {
     color: white;
