@@ -5,51 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victor Olin</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/parallax.css">
+    <script src="https://kit.fontawesome.com/5881ad93c5.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js" integrity="sha512-w1Bktzax55ZbjW5Mqjz8+mKz4KqRjEUU35Dpq/ath29yskKqIGwNIHiFNp03m/OiJWDXvdQ1/g6aV+l4PeVO7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- TODO: icon -->
 </head>
 
 <body>
-    <div class="container">
-        <div class="background">
-            <img src="images/background.png" alt="" class="ground-bg">
-        </div>
-        <div id="canvas"></div>
-        <main>
-            <div class="content-container">
-                <section class="about">
-                    <h1>Victor Olin</h1>
-                </section>
-                <section class="links">
-                    <a href="https://github.com/v-olin" target="_blank">
-                        <div class="link" id="link-github">
-                            <img src="images/git-logo.png" alt="" class="icon">
-                            <strong>Github</strong>
-                            <span>Check out what I like to do in my spare time</span>
-                        </div>
+    <!-- Navbar section -->
+    <section>
+        <nav>
+            <span>
+                <a href="#" class="navbar-brand">v-olin.dev</a>
+            </span>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/in/v-olin/" class="nav-link" target="_blank">
+                        <i class="fab fa-linkedin fa-md icon"></i>
                     </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://github.com/v-olin" class="nav-link" target="_blank">
+                        <i class="fab fa-github fa-md icon"></i>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="" class="nav-link" target="_blank">
+                        <i class="far fa-file-alt fa-md icon"></i>
+                    </a>
+                </li> -->
+            </ul>
+        </nav>
+    </section>
 
-                    <a href="https://www.linkedin.com/in/v-olin/" target="_blank">
-                        <div class="link" id="link-linkedin">
-                            <img src="images/linkedin-logo.png" alt="" class="icon">
-                            <strong>LinkedIn</strong>
-                            <span>You can find my work experience here</span>
-                        </div>
-                    </a>
-
-                    <a href="html/skills.html">
-                        <div class="link" id="link-skills">
-                            <img src="images/vsc-logo.png" alt="" class="icon">
-                            <strong>Skillset</strong>
-                            <span>What are my strong suits?</span>
-                        </div>
-                    </a>
-                </section>
+    <!-- Planes -->
+    <section>
+        <div class="plane-container">
+            <div class="title-container">
+                <h1>Victor Olin</h1>
+                <p id="typew-text">Pajas</p>
+                <!-- <img src="https://readme-typing-svg.herokuapp.com?font=Nova+Mono&color=%23F7F7F7&size=50&vCenter=true&height=70&lines=CSE+Student;Developer;Enthusiast;Pilot" alt=""> -->
             </div>
-        </main>
-    </div>
+            <div class="geo-bg-div" id="bg-holder">
+                <img src="../images/background.png" alt="" class="geo-bg">
+            </div>
+            <div id="canvas"></div>
+        </div>
+    </section>
 
-    <script src="js/planes.js"></script>
+    <!-- Content -->
+
+    <section>
+        <div class="card">
+            
+        </div>
+    </section>
+
+    <!-- JS Scripts -->
+    <script src="../js/planes.js"></script>
+    <script src="../js/typewriter.js"></script>
 </body>
 
 </html>
