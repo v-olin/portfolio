@@ -3,6 +3,8 @@ let waypoints = [];
 let planes = [];
 let planeImg;
 let planeImgUrl = 'https://alohe.github.io/emojicloud/svg/Airplane.svg';
+let winWidth;
+let winHeight;
 // let planeImgUrl = 'https://alohe.github.io/emojicloud/svg/Pile%20of%20poo.svg';
 
 // ----- Constants --------------------
@@ -12,11 +14,15 @@ const plane_len = 10;
 // ----- Funcs ------------------------
 function setup() {
     // set canvas
-    canvas = createCanvas(windowWidth, 800);
+    let canv = document.getElementById('bg-holder')
+    winWidth = canv.offsetWidth;
+    winHeight = canv.offsetHeight;
+    canvas = createCanvas(winWidth, winHeight);
     canvas.parent("canvas");
     canvas.style("z-index", "-1");
     canvas.position(0, 80);
     fill(0,0,0);
+
     angleMode(DEGREES);
 
     // generate waypoints
@@ -37,13 +43,16 @@ function preload() {
 
 // Canvas resize
 function windowResized() {
-    resizeCanvas(windowWidth, 800);
+    let canv = document.getElementById('bg-holder')
+    winWidth = canv.offsetWidth;
+    winHeight = canv.offsetHeight;
+    resizeCanvas(canv.offsetWidth, canv.offsetHeight);
 }
 
 // Draws planes on screen
 function draw() {
     clear();
-    if (windowWidth > 420) {
+    if (winWidth > 420) {
         for (let i = 0; i < plane_len; i++) {
             let p = planes[i];
             p.update();
@@ -58,8 +67,8 @@ function draw() {
 // Generates random coords outside of screen for plane to enter from
 function outsideCoords() {
     let side = Math.floor(Math.random() * 4);
-    let dx = Math.floor(Math.random() * windowWidth);
-    let dy = Math.floor(Math.random() * 800);
+    let dx = Math.floor(Math.random() * winWidth);
+    let dy = Math.floor(Math.random() * winHeight);
     let x = 0;
     let y = 0;
 
@@ -69,12 +78,12 @@ function outsideCoords() {
             y = -20;
             break;
         case 1:
-            x = windowWidth + 20;
+            x = winWidth + 20;
             y = dy;
             break;
         case 2:
             x = dx;
-            y = 800 + 20;
+            y = winHeight + 20;
             break;
         case 3:
             x = -20;
@@ -106,8 +115,8 @@ function normalizeVector(vector) {
 */
 class Waypoint {
     constructor() {
-        this.x = Math.floor(Math.random() * (windowWidth * 0.85));
-        this.y = Math.floor(Math.random() * (800 * 0.85));
+        this.x = Math.floor(Math.random() * (winWidth * 0.85));
+        this.y = Math.floor(Math.random() * (winHeight * 0.85));
     }
 }
 
@@ -152,7 +161,7 @@ class Plane {
 
     // Checks whether plane is outside of canvas
     outsideCanvas() {
-        if (this.x < -20 || this.x > windowWidth + 20 || this.y < -20 || this.y > 820)
+        if (this.x < -20 || this.x > winWidth + 20 || this.y < -20 || this.y > 820)
             return true;
         return false;
     }

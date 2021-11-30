@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');
 
 /* Variables */
 
 :root {
-    --font-family: 'Source Code Pro', monospace;
+    --font-family: 'Nova Mono', monospace;
     --normal-font: 400;
     --bold-font: 700;
     --bg-color: white;
@@ -28,7 +29,7 @@ body {
     margin: 0;
     width: 100%;
     font-family: var(--font-family);
-    background-color: var(--bg-color);
+    background-color: var(--fg-color);
     padding: 0;
 }
 
@@ -44,15 +45,15 @@ nav {
 .nav-list {
     display: flex;
     height: 5rem;
-    /* line-height: 5rem; */
     float: right;
     justify-content: center;
 }
 
 .nav-item {
     display: inline;
-    margin: 1.5rem;
-    height: 3rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    height: 100%;
     padding: 0;
 }
 
@@ -74,12 +75,18 @@ nav {
 }
 
 .nav-link {
-    height: 2rem;
+    height: 100%;
+    margin: auto;
+    font-size: 2rem;
+    /* top: 50%; */
+    position: relative;
+    top: calc(50% - 1.5rem);
 }
 
 .icon {
     height: 2rem;
     filter: brightness(0) invert(1);
+    text-align: center;
 }
 
 .icon:hover {
@@ -110,9 +117,47 @@ nav {
     object-fit: cover;
 }
 
+.title-container {
+    min-width: 20rem;
+    width: fit-content;
+    padding-right: 20%;
+    height: 33%;
+    margin: auto;
+    position: relative;
+    top: 33%;
+}
+
+.title-container h1 {
+    /* margin: 10%; */
+    color: white;
+    font-size: 75px;
+    text-shadow: 5px 5px 5px #424242;
+}
+
+.title-container img {
+    background-color: #424242;
+}
+
 /* Cards */
 
-.card {
+/* .card {
     height: 100rem;
     background-color: #424242;
+} */
+
+#typew-text {
+    color: white;
+    font-size: 40px;
+    text-shadow: 5px 5px 5px #424242;
+}
+
+span {
+    border-radius: 0.5em solid;
+    animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+    50% {
+        border-color: transparent;
+    }
 }
