@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
 
 /* Variables */
+
 :root {
     --font-family: "Roboto", sans-serif;
     --normal-font: 400;
@@ -9,12 +10,16 @@
     --line-height: 1.7rem;
 }
 
+
 /* Content */
+
 html {
     scroll-behavior: smooth;
 }
 
+
 /* CSS reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -53,7 +58,7 @@ body {
 }
 
 main {
-    min-height:100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,50 +75,53 @@ main {
     border-color: aliceblue;
 }
 
-.about h1 {
+.skillset h1 {
     color: white;
-    font-size:3rem;
-    z-index:100;
+    font-size: 3rem;
+    z-index: 100;
     font-weight: 700;
 }
 
-.links {
+.skills {
     margin-top: 1rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    min-height: 20rem;
 }
 
-.links a {
-    text-decoration: none;
+#skill-c-prog {
+    grid-column: 1;
+    grid-row: 1;
 }
 
-.link {
+#skill-d-prog {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.skill {
     position: relative;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     border: solid;
     background: none;
     border-radius: 5px;
     color: white;
     padding: 1rem;
+    width: 200px;
+    height: 152px;
 }
 
-.link strong {
+.skill strong {
     display: block;
-}
-
-.link:hover {
-    border-color: #ffae00;
 }
 
 .icon {
     width: 4rem;
     height: 4rem;
     padding: 5px;
-    filter: brightness(0) invert(1);
 }
 
-@media screen and (max-width: 800px) {
-    .links {
-      flex-direction: column;
-    }
+.p-bar {
+    margin-top: 10px;
 }
